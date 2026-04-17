@@ -73,6 +73,3 @@ paru -S --needed --noconfirm --skipreview visual-studio-code-bin intellij-idea-c
 
 # Authentication Agent
 sudo pacman -S --needed --noconfirm polkit-kde-agent
-
-# Change to ZSH
-chsh -s /usr/bin/zsh
