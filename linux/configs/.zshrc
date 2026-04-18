@@ -13,6 +13,9 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# Functions on prompt
+# setopt PROMPT_SUBST
+
 # Load alias
 [ -f ~/.aliases ] && source ~/.aliases
 
@@ -26,13 +29,33 @@ function docker_list {
   echo $containers
 }
 
-# Keybinding
-_display_test_message() {
-    echo -n "This is a test message"
+function mkcd {
+    mkdir -p "$1" && cd "$1"
 }
 
-#Need to register the funtion
-zle	-N	_display_test_message	
+# Keybinding
+## Define function
+_ls_move() {
+    move_dir=$(ls | fzf)
+    cd "$move_dir"
+}
 
-# Create the binding
-bindkey	'^h'	_display_test_message	
+_fzf_history() {
+    command=$(fc -rl 1 | awk '{$1="";print substr($0,2)}' | fzf)
+    echo -n $command
+}
+
+
+## Need to register the funtion
+zle	-N	_ls_move
+zle	-N	_fzf_history
+
+## Create the binding
+bindkey	'^h'	_ls_move
+bindkey	'^r'	_fzf_history
+
+# PROMPT
+PROMPT="%{%F{39}%}%{%f%} %{%F{%(?.green.red)}%}%n%{%f%}@%M %2~ %# "
+
+# RPROMPT
+RPROMPT="%{%F{241}%}%T%{%f%}"
