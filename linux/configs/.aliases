@@ -1,0 +1,26 @@
+alias sudo="sudo "
+alias pcp="sudo pacman -Syu"
+
+alias ll="eza -l --icons"
+alias la="eza -la --icons"
+alias fls="du -sh *"
+
+alias clr="clear"
+
+alias cdc="cd ~/projects"
+alias cdd="cd ~/Docker"
+
+alias gs="git status -sb"
+alias gd="git diff HEAD"
+alias gaa="git add -A"
+alias gc="git commit"
+alias gf="git fetch --all -p"
+alias gps="git push"
+alias gpsf="git push --force"
+alias gpl="git pull --rebase --autostash"
+alias gb="git branch"
+
+alias dps="docker ps"
+alias dcportainerup="docker compose -f ~/Docker/portainer/docker-compose.yml up"
+alias dcportainerdown="docker compose -f ~/Docker/portainer/docker-compose.yml down"
+
