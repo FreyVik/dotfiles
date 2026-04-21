@@ -59,6 +59,10 @@ sudo pacman -S --needed --noconfirm jdk25-openjdk python python-pip
 # Fonts
 sudo pacman -S --needed --noconfirm noto-fonts-emoji
 
+# Emojis
+sudo pacman -S --needed --noconfirm wofi-emoji
+
+
 # Status bar
 sudo pacman -S --needed --noconfirm waybar
 
